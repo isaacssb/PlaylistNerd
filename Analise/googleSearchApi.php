@@ -1,4 +1,5 @@
 <?php
+require_once('credentials.php');
 
 /**
  * Realizar requisição na api do google - Google Custom Search
@@ -6,12 +7,14 @@
 class googleSearchApi
 {
 
-    public function searchListItems()
+    public function searchListItems($searchText)
     {
         $curl = curl_init();
 
+        $url = "https://customsearch.googleapis.com/customsearch/v1?cx=" . CX_GOOGLE . "&q=" . $searchText . "&key=" . KEY_GOOGLE;
+
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://customsearch.googleapis.com/customsearch/v1?',
+        CURLOPT_URL => $url,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -27,6 +30,14 @@ class googleSearchApi
         $response = curl_exec($curl);
 
         curl_close($curl);
-        echo $response;
+        echo '<div style="width: 90%; margin: 5px auto; padding: 5px; border: 1px solid #999; border-radius: 5px; background-color: #ccffff;">';
+        echo '<pre style="text-align: left;">';
+        echo   '<hr>';
+        echo   str_replace( $_SERVER['DOCUMENT_ROOT'], '', __FILE__) . ' (Linha ' . __LINE__ . ')';
+        echo   '<hr>';
+        var_dump( $response );
+        echo   '<hr>';
+        echo '</pre>';
+        echo '</div>';
     }
 }
