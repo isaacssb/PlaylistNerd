@@ -1,5 +1,6 @@
 <?php
+require_once('googleSearchApi.php');
 
 $googleSearchApi = new googleSearchApi();
 
-$googleSearchApi->searchListItems('music list fullmetal alchemist');
+$googleSearchApi->getLinksInSearch('music list fullmetal alchemist');
