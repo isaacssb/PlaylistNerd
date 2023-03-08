@@ -60,7 +60,7 @@ class googleSearchApi
           echo   '<hr>';
           echo   str_replace( $_SERVER['DOCUMENT_ROOT'], '', __FILE__) . ' (Linha ' . __LINE__ . ')';
           echo   '<hr>';
-          var_dump( $response );
+          var_dump( $response['items'] );
           echo   '<hr>';
           echo '</pre>';
           echo '</div>';
