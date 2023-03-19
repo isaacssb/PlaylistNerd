@@ -2,13 +2,13 @@
 require_once('credentials.php');
 
 /**
- * Realizar requisição na api do google - Google Custom Search
+ * Realizar requisiÃ§Ã£o na api do google - Google Custom Search
  */
 class googleSearchApi
 {
 
     /**
-     * Faz requisição para api do Google 'Custom search API'
+     * Faz requisiÃ§Ã£o para api do Google 'Custom search API'
      *
      * @param string $nameAnime
      * @return void
@@ -46,13 +46,13 @@ class googleSearchApi
     public function getLinksInSearch($nameAnime)
     {
         if (empty($nameAnime)) {
-            throw new Exception("Preencha corretamente a variável 'nameAnime'!");
+            throw new Exception("Preencha corretamente a variÃ¡vel 'nameAnime'!");
         }
 
         $response = $this->searchListItems($nameAnime);
 
         if (empty($response)) {
-            throw new Exception('Erro ao realizar requisição para buscar os dados da API');
+            throw new Exception('Erro ao realizar requisiÃ§Ã£o para buscar os dados da API');
         }
 
           echo '<div style="width: 90%; margin: 5px auto; padding: 5px; border: 1px solid #999; border-radius: 5px; background-color: #ccffff;">';
